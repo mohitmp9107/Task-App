@@ -52,12 +52,7 @@ router.patch('/users/me',auth,async(req,res)=>{
 
 router.delete('/users/me',auth,async (req,res)=>{
     try{
-        // console.log(req.user);
-        console.log('here');
-        // const user = await User.findOneAndDelete({})
-        // .findOneAndDelete({_id:req.params.id,owner:req.user._id});
        await req.user.remove();
-        console.log('jere');
         res.send(req.user);
     }catch(e){
         res.status(500).send();
